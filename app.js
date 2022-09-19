@@ -1,2 +1,3 @@
 const express = require('express')
-const 
+const config = require('config')
+const port = config.get('port')
