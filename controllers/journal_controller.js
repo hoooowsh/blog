@@ -6,8 +6,8 @@ const mongoId = require('mongoose').Types.ObjectId;
 
 // read journal function
 async function readJournal(req, res) {
-    const journal_id = req.params.id;
-    if (mongodID.isValid(journal_id)) {
+    const journal_id = req.params.journal_id;
+    if (mongoId.isValid(journal_id)) {
         let journalFound;
         try {
             journalFound = await Journal.findById(journal_id);
@@ -39,6 +39,7 @@ async function createJournal(req, res) {
         await newJournal.save();
         const status = 201;
         const resp = new ResponseBody(status, newJournal.id, "Journal creation succeed", true);
+        console.log(newJournal.id);
         res.status(status).json(resp);
     } catch (err) {
         throw new ServerError(err.code, 500, "Error: Something wrong when trying to create journal!");
@@ -47,7 +48,7 @@ async function createJournal(req, res) {
 
 // update journal function
 async function updateJournal(req, res) {
-    const journal_id = req.params.id;
+    const journal_id = req.params.journal_id;
     let journal;
     try {
         journal = await Journal.findByIdAndUpdate(journal_id, { ...req.body.journal }, { runValidators: true, new: true });
@@ -64,15 +65,16 @@ async function updateJournal(req, res) {
 
 // delete journal function
 async function deleteJournal(req, res) {
-    const journal_id = req.params.id;
+    const journal_id = req.params.journal_id;
     let journal;
     try {
-        Journal.findByIdAndDelete(journal_id);
+        journal = await Journal.findByIdAndDelete(journal_id);
     } catch (err) {
         throw new ServerError(err.code, 500, "Error: Something wrong when trying to delete journal!");
     }
-    if (jounal) {
+    if (journal) {
         const respBody = new ResponseBody(200, journal, "Journal delete succeed", true);
+        console.log("here")
         res.status(200).json(respBody);
     } else {
         throw new ServerError(400, 400, "Error: Journal not found for delete!")

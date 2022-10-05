@@ -7,6 +7,10 @@ const morgan = require('morgan');
 // import routes
 const journal_route = require('./controllers/routes/journal_route');
 
+// import resp body
+const ErrorResponseBody = require('./utils/errorResp');
+
+
 const app = express();
 app.use(express.json());
 app.use(cors());
