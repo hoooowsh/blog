@@ -6,7 +6,7 @@ const CommentSchema = new Schema({
     type: String,
     required: true
   },
-  poserter_name: String,
+  poster_name: String,
   text: String,
   date: Date
 })

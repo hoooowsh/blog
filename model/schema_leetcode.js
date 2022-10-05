@@ -2,6 +2,7 @@ const mongoose = require('moongoose');
 const Schema = mongoose.Schema;
 
 const LeetcodeSchema = new Schema({
+  problemNum: Number,
   title: String,
   date:{
     type: Date,

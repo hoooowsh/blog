@@ -1,4 +1,5 @@
 {
-  "port": 8000,
+  "appport": 8000,
+  "dbport": 27017,
   "dbUrl": "mongodb://127.0.0.1:27017/default_blog"
 }
