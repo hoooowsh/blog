@@ -39,7 +39,6 @@ async function createJournal(req, res) {
         await newJournal.save();
         const status = 201;
         const resp = new ResponseBody(status, newJournal.id, "Journal creation succeed", true);
-        console.log(newJournal.id);
         res.status(status).json(resp);
     } catch (err) {
         throw new ServerError(err.code, 500, "Error: Something wrong when trying to create journal!");
@@ -74,7 +73,6 @@ async function deleteJournal(req, res) {
     }
     if (journal) {
         const respBody = new ResponseBody(200, journal, "Journal delete succeed", true);
-        console.log("here")
         res.status(200).json(respBody);
     } else {
         throw new ServerError(400, 400, "Error: Journal not found for delete!")

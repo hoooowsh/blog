@@ -6,6 +6,8 @@ const express = require('express');
 const morgan = require('morgan');
 // import routes
 const journal_route = require('./controllers/routes/journal_route');
+const leetcode_route = require('./controllers/routes/leetcode_route');
+
 
 // import resp body
 const ErrorResponseBody = require('./utils/errorResp');
@@ -23,9 +25,11 @@ app.get("/", (req, res) => {
     })
 })
 
-//journal page
+// journal page
 app.use('/journal', journal_route);
 
+// leetcode page
+app.use('/leetcode', leetcode_route);
 
 
 // error handler for invalid routes
