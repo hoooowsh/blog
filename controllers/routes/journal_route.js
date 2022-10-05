@@ -6,7 +6,7 @@ const router = express.Router();
 router.route("/:journal_id").get(catchAsync(journal.readJournal));
 
 // add journal route
-router.route("/").post(catchAsync(journal.CreateJournal));
+router.route("/").post(catchAsync(journal.createJournal));
 
 // update journal route
 router.route("/:journal_id").put(catchAsync(journal.updateJournal));
