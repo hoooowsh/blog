@@ -4,7 +4,7 @@ const ResponseBody = require('../utils/respBody');
 const mongoId = require('mongoose').Types.ObjectId;
 
 
-// read journal function
+// read leetcode function
 async function readLeetcode(req, res) {
     const leetcode_id = req.params.leetcode_id;
     if (mongoId.isValid(leetcode_id)) {
@@ -31,7 +31,7 @@ async function readLeetcode(req, res) {
     }
 }
 
-// create journal function
+// create leetcode function
 async function createLeetcode(req, res) {
     const newLeetcode = new Leetcode(req.body);
     newLeetcode.date = Date.now();
@@ -45,7 +45,7 @@ async function createLeetcode(req, res) {
     }
 }
 
-// update journal function
+// update leetcode function
 async function updateLeetcode(req, res) {
     const leetcode_id = req.params.leetcode_id;
     let leetcode;
@@ -62,7 +62,7 @@ async function updateLeetcode(req, res) {
     }
 }
 
-// delete journal function
+// delete leetcode function
 async function deleteLeetcode(req, res) {
     const leetcode_id = req.params.leetcode_id;
     let leetcode;
