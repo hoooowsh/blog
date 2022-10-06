@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const JournalSchema = new Schema({
+const JourneySchema = new Schema({
   title: String,
   date:{
     type: Date,
@@ -9,8 +9,8 @@ const JournalSchema = new Schema({
   text: String
 });
 
-const Journal = mongoose.model('Journal', JournalSchema);
+const Journey = mongoose.model('Journey', JourneySchema);
 module.exports = {
-  Journal,
-  JournalSchema
+  Journey,
+  JourneySchema
 }

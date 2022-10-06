@@ -5,7 +5,7 @@ const cors = require('cors');
 const express = require('express');
 const morgan = require('morgan');
 // import routes
-const journal_route = require('./controllers/routes/journal_route');
+const journey_route = require('./controllers/routes/journey_route');
 const leetcode_route = require('./controllers/routes/leetcode_route');
 const tech_route = require('./controllers/routes/tech_route');
 
@@ -28,8 +28,8 @@ app.get("/", (req, res) => {
     })
 })
 
-// journal page
-app.use('/journal', journal_route);
+// journey page
+app.use('/journey', journey_route);
 
 // leetcode page
 app.use('/leetcode', leetcode_route);
